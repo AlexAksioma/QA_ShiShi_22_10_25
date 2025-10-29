@@ -15,7 +15,8 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-!**/src/main/resources/proprties/*.properties
+src/main/resources/proprties
+src/test/test_logs
 
 
 

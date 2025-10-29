@@ -2,6 +2,7 @@ package ui_tests;
 
 import manager.AppManager;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.BasePage.*;
 import pages.HomePage;
@@ -9,11 +10,13 @@ import pages.en_pages.EnHomePage;
 import pages.en_pages.EnPhotoPage;
 import pages.ru_pages.RuEventsPage;
 import utils.RetryAnalyzer;
+import utils.TestNGListener;
 import utils.enums.HeaderMenuItemsEn;
 import utils.enums.HeaderMenuItemsRu;
 
 import static pages.BasePage.*;
 
+@Listeners(TestNGListener.class)
 public class StartUITests extends AppManager {
 
     @Test
