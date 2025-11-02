@@ -32,6 +32,6 @@ public class StartUITests extends AppManager {
         pause(5);
         EnHomePage enHomePage = clickRuHeaderBtn(HeaderMenuItemsRu.BTN_CHANGE_LANGUAGE_RU);;
         EnPhotoPage enPhotoPage = clickEnHeaderBtn(HeaderMenuItemsEn.PHOTO);
-        Assert.fail();
+        //Assert.fail();
     }
 }

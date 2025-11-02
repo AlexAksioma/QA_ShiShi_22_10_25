@@ -90,5 +90,12 @@ public abstract class BasePage {
         }
     }
 
+    protected boolean isElementDisplayed(WebElement element) {
+        try {
+            return element != null && element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }
