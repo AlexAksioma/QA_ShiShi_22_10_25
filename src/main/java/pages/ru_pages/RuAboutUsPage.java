@@ -17,12 +17,15 @@ public class RuAboutUsPage extends BasePage {
 
     @FindBy(xpath = "//span[text()='Пресса о нас']")
     private WebElement pressHeader;
+    //div[@class='large-12 cell']//h2//span[string-length()=12]
 
     @FindBy(xpath = "//span[text()='О нас']")
     private WebElement aboutHeader;
+    //div[@class='large-12 cell text-center']//h1//span
 
     @FindBy(xpath = "//span[text()='Команда']")
     private WebElement teamHeader;
+    //div[@class='large-12 cell']//h2//span[string-length()=7]
 
     public boolean isPressHeaderDisplayed() {
         return isElementDisplayed(pressHeader);

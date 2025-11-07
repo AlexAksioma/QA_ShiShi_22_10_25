@@ -98,4 +98,11 @@ public abstract class BasePage {
         }
     }
 
+    public static boolean ElementIsDisplayed(WebElement element) {
+        try {
+            return element != null && element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

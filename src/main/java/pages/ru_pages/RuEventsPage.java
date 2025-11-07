@@ -15,9 +15,24 @@ public class RuEventsPage extends BasePage {
                 new AjaxElementLocatorFactory(driver, 20), this);
     }
 
+    @FindBy(xpath = "//div[@class='medium-8 large-8 cell text-center']/h1//span[string-length()=11]")
+    WebElement eventsHeader;
 
+    @FindBy(xpath = "//p[@class='archive_button']/a[@href='archive/']")
+    WebElement buttonArchive;
 
+    @FindBy(xpath = "//form[@action='events']//button[string-length()=5]")
+    WebElement buttonSearch;
 
+    public boolean isEventsHeaderDisplayed(){
+        return isElementDisplayed(eventsHeader);
+    }
 
+    public boolean isButtonArchiveDisplayed(){
+        return isElementDisplayed(buttonArchive);
+    }
 
+    public boolean isButtonSearchDisplayed(){
+        return isElementDisplayed(buttonSearch);
+    }
 }
