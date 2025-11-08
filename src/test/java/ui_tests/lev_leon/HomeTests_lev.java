@@ -2,7 +2,9 @@ package ui_tests.lev_leon;
 
 
 import manager.AppManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -91,4 +93,18 @@ public class HomeTests_lev extends AppManager {
         getDriver().get(originalUrl);
         softAssert.assertAll();
     }
+
+    @Test
+    public void ruBtnSearch(){
+        homePage.clickBtnSearch();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//button[@class='button search']/i[contains(@class, 'fa-times')]")));
+        WebElement cross = getDriver().findElement(By.xpath("//button[@class='button search']/i[contains(@class, 'fa-times')]"));
+        WebElement inputField = getDriver().findElement(By.xpath("//input[@class='input-group-field search-field expand-search']"));
+        Assert.assertTrue(cross.isDisplayed() && inputField.isDisplayed());
+        pause(2);
+        cross.click();
+    }
+
 }
