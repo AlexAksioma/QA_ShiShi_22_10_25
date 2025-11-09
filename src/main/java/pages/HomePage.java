@@ -12,7 +12,8 @@ public class HomePage extends BasePage{
 
     public HomePage(WebDriver driver){
         setDriver(driver);
-        driver.get(getProperty("base.properties", "baseUrl"));
+      driver.get(getProperty("base.properties", "baseUrl"));
+        // driver.get("https://shishi.co.il/");
         PageFactory.initElements(
                 new AjaxElementLocatorFactory(driver, 20), this);
     }

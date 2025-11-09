@@ -17,6 +17,7 @@ out/
 !**/src/test/**/out/
 src/test/properties
 src/test/test_logs
+*.properties
 
 
 

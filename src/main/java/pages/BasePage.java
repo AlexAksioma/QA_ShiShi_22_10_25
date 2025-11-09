@@ -9,14 +9,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.en_pages.*;
 import pages.ru_pages.*;
+import utils.PropertiesReader;
 import utils.enums.HeaderMenuItemsEn;
 import utils.enums.HeaderMenuItemsRu;
 
 import java.time.Duration;
+import java.util.Set;
 
 public abstract class BasePage {
 
-    static WebDriver driver;
+    public static WebDriver driver;
 
     public static void setDriver(WebDriver wd) {
         driver = wd;
@@ -31,10 +33,13 @@ public abstract class BasePage {
     }
 
     public static <T extends BasePage> T clickRuHeaderBtn(HeaderMenuItemsRu item) {
-        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(20))
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(item.getLocator())));
         element.click();
         switch (item) {
+            case LOGIN -> {
+                return (T) new RuLoginPage(driver);
+            }
             case CONTACTS -> {
                 return (T) new RuContactsPage(driver);
             }
@@ -50,9 +55,10 @@ public abstract class BasePage {
             case VIDEO -> {
                 return (T) new RuVideoPage(driver);
             }
-            case BTN_CHANGE_LANGUAGE_RU -> {
+            case BTN_CHANGE_LANGUAGE_EN -> {
                 return (T) new EnHomePage(driver);
             }
+
             default -> throw new IllegalArgumentException("Invalid parameter RuHeaderMenuItem");
         }
     }
@@ -89,6 +95,44 @@ public abstract class BasePage {
             default -> throw new IllegalArgumentException("Invalid parameter EnHeaderMenuItem");
         }
     }
+
+
+    public  boolean isWebElementDisplaed(WebElement element){
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickElement(WebElement element){
+       WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+       wait.until(ExpectedConditions.visibilityOf(element));
+       element.click();
+    }
+
+    /**??????
+     * switch WebDriver on new window, using URL with eventID.
+     * @param expectedUrlSegment - part of URL = eventID ( "https://shishi.co.il/events/2485").
+     *                                           baseURL (https://shishi.co.il/) + "events/"+"eventID"
+     * @param timeoutInSeconds - max wait time.
+     */
+    public static void switchToPage(String pageName){
+        // 1. String curPage = driver.getWindowHandle(); use curPage in test method for store pageDescriptor
+        //2. Create Set contains all Pages
+        Set<String> allPagesHandles = driver.getWindowHandles();
+        for(String handle: allPagesHandles){
+            if(! handle.equals(pageName)){
+                driver.switchTo().window(handle);
+            }
+            break;
+        }
+
+    }
+
+
 
 
 }
