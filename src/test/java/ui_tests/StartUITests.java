@@ -4,7 +4,6 @@ import manager.AppManager;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pages.BasePage.*;
 import pages.HomePage;
 import pages.en_pages.EnHomePage;
 import pages.en_pages.EnPhotoPage;
@@ -30,7 +29,7 @@ public class StartUITests extends AppManager {
     public void startUITest1(){
         HomePage homePage = new HomePage(getDriver());
         pause(5);
-        EnHomePage enHomePage = clickRuHeaderBtn(HeaderMenuItemsRu.BTN_CHANGE_LANGUAGE_RU);;
+        EnHomePage enHomePage = clickRuHeaderBtn(HeaderMenuItemsRu.BTN_CHANGE_LANGUAGE_EN);;
         EnPhotoPage enPhotoPage = clickEnHeaderBtn(HeaderMenuItemsEn.PHOTO);
         Assert.fail();
     }

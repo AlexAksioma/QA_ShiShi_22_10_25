@@ -1,7 +1,5 @@
 package pages;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-import manager.AppManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,7 +48,7 @@ public abstract class BasePage {
             case VIDEO -> {
                 return (T) new RuVideoPage(driver);
             }
-            case BTN_CHANGE_LANGUAGE_RU -> {
+            case BTN_CHANGE_LANGUAGE_EN -> {
                 return (T) new EnHomePage(driver);
             }
             default -> throw new IllegalArgumentException("Invalid parameter RuHeaderMenuItem");
