@@ -35,8 +35,10 @@ public class StartUITests extends AppManager {
     public void startUITest1(){
         HomePage homePage = new HomePage(getDriver());
         pause(5);
-        clickRuHeaderBtn(HeaderMenuItemsRu.BTN_CHANGE_LANGUAGE_EN);
-        EnHomePage enHomePage = clickEnHeaderBtn(HeaderMenuItemsEn.PHOTO);
+
+        EnHomePage enHomePage = clickRuHeaderBtn(HeaderMenuItemsRu.BTN_CHANGE_LANGUAGE_EN);;
+        EnPhotoPage enPhotoPage = clickEnHeaderBtn(HeaderMenuItemsEn.PHOTO);
+
         Assert.fail();
     }
 

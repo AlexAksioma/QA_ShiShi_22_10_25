@@ -1,7 +1,5 @@
 package pages;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-import manager.AppManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
